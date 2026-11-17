@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traduction vocale en direct</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Traduction vocale en direct</h1>
+      <p class="sub">Parlez, la traduction s'affiche et se lit à voix haute.</p>
+    </header>
+
+    <div class="controls">
+      <label class="field">
+        <span class="field-label">Je parle</span>
+        <select id="src" aria-label="Langue parlée"></select>
+      </label>
+      <button id="swap" class="icon-btn" title="Inverser les langues" aria-label="Inverser les langues">⇄</button>
+      <label class="field">
+        <span class="field-label">Traduction</span>
+        <select id="tgt" aria-label="Langue de traduction"></select>
+      </label>
+    </div>
+
+    <button id="mic" class="mic" aria-pressed="false" aria-label="Activer le micro">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+        <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+      </svg>
+    </button>
+
+    <div class="status">
+      <span id="dot" class="dot"></span>
+      <span id="status-text">Prêt — activez le micro pour commencer.</span>
+    </div>
+
+    <div class="panels">
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="src-label">Vous</h2>
+        </div>
+        <div id="src-log" class="log" data-placeholder="Vos paroles apparaîtront ici…"></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="tgt-label">Traduction</h2>
+          <div class="panel-actions">
+            <button id="replay" class="mini-btn" title="Relire la dernière traduction" aria-label="Relire la dernière traduction">🔊</button>
+            <button id="clear" class="mini-btn" title="Effacer la conversation" aria-label="Effacer la conversation">✕</button>
+          </div>
+        </div>
+        <div id="tgt-log" class="log" data-placeholder="La traduction apparaîtra ici…"></div>
+      </section>
+    </div>
+
+    <label class="autospeak">
+      <input type="checkbox" id="autospeak" checked>
+      Lire la traduction à voix haute
+    </label>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
